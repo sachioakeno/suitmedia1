@@ -12,11 +12,9 @@ export default function Banner() {
         requestAnimationFrame(() => {
           const scrollY = window.scrollY;
           if (imgRef.current) {
-            // Image moves slower than scroll (parallax)
             imgRef.current.style.transform = `translateY(${scrollY * 0.45}px)`;
           }
           if (textRef.current) {
-            // Text moves at different speed for depth effect
             textRef.current.style.transform = `translateY(${scrollY * 0.2}px)`;
             textRef.current.style.opacity = Math.max(0, 1 - scrollY / 400);
           }
@@ -36,7 +34,7 @@ export default function Banner() {
         <img
           ref={imgRef}
           className="banner__img"
-          src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1600&q=80"
+          src={process.env.REACT_APP_BANNER_IMAGE}
           alt="Ideas creative background"
           loading="eager"
         />

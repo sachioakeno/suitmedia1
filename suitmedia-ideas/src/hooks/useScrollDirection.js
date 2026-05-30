@@ -14,9 +14,9 @@ export function useScrollDirection() {
       if (Math.abs(currentY - lastY.current) < threshold) return;
 
       if (currentY > lastY.current && currentY > 100) {
-        setVisible(false); // scrolling down
+        setVisible(false);
       } else {
-        setVisible(true);  // scrolling up
+        setVisible(true);
       }
       lastY.current = currentY;
     };

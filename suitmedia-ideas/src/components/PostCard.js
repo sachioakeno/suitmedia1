@@ -12,15 +12,15 @@ function formatDate(dateStr) {
 }
 
 function getImageUrl(item) {
-  // Try medium_image first, then small_image, then fallback
   if (item.medium_image?.url) return item.medium_image.url;
   if (item.small_image?.url) return item.small_image.url;
   if (item.medium_image) return item.medium_image;
   if (item.small_image) return item.small_image;
-  return `https://picsum.photos/seed/${item.id}/400/300`;
+  return `https://picsum.photos/seed/${item.id}/400/300`; 
 }
 
 export default function PostCard({ item }) {
+  console.log('item data:', item);
   const imgRef = useRef(null);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);

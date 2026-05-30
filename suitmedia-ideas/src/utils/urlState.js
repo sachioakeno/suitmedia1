@@ -1,4 +1,3 @@
-// Persist state in URL search params so it survives page refresh
 export function getUrlState() {
   const params = new URLSearchParams(window.location.search);
   return {
