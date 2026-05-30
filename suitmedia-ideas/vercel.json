@@ -3,6 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://suitmedia-backend.suitdev.com/api/:path*"
+    },
+    {
+      "source": "/storage/:path*",
+      "destination": "https://assets.suitdev.com/storage/:path*"
     }
   ]
 }

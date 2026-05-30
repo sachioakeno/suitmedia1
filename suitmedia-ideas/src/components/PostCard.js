@@ -12,15 +12,13 @@ function formatDate(dateStr) {
 }
 
 function getImageUrl(item) {
-  if (item.medium_image?.url) return item.medium_image.url;
-  if (item.small_image?.url) return item.small_image.url;
-  if (item.medium_image) return item.medium_image;
-  if (item.small_image) return item.small_image;
-  return `https://picsum.photos/seed/${item.id}/400/300`; 
+  if (item.medium_image?.[0]?.url) return item.medium_image[0].url;
+  if (item.small_image?.[0]?.url) return item.small_image[0].url;
+  return `https://picsum.photos/seed/${item.id}/400/300`;
 }
 
 export default function PostCard({ item }) {
-  console.log('item data:', item);
+  console.log('item:', JSON.stringify(item, null, 2));
   const imgRef = useRef(null);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
@@ -35,17 +33,18 @@ export default function PostCard({ item }) {
           <div className="post-card__skeleton" aria-hidden="true" />
         )}
         <img
-          ref={imgRef}
-          src={imageUrl}
-          alt={item.title}
-          loading="lazy"
-          className={`post-card__img ${imgLoaded ? 'post-card__img--loaded' : ''}`}
-          onLoad={() => setImgLoaded(true)}
-          onError={() => {
-            setImgError(true);
-            setImgLoaded(true);
-          }}
-        />
+  ref={imgRef}
+  src={imageUrl}
+  alt={item.title}
+  loading="lazy"
+  crossOrigin="anonymous"
+  className={`post-card__img ${imgLoaded ? 'post-card__img--loaded' : ''}`}
+  onLoad={() => setImgLoaded(true)}
+  onError={() => {
+    setImgError(true);
+    setImgLoaded(true);
+  }}
+/>
         {imgError && (
           <div className="post-card__fallback" aria-hidden="true">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
