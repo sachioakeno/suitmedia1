@@ -14,11 +14,7 @@ function formatDate(dateStr) {
 function getImageUrl(item) {
   const url = item.medium_image?.[0]?.url || item.small_image?.[0]?.url;
   if (!url) return null;
-
-  console.log('NODE_ENV:', process.env.NODE_ENV);
-  console.log('url:', url);
-
-  return url.replace('https://assets.suitdev.com', '');
+  return url.replace('assets.suitdev.com', 'suitmedia.static-assets.id');
 }
 
 export default function PostCard({ item }) {
