@@ -14,11 +14,11 @@ function formatDate(dateStr) {
 function getImageUrl(item) {
   const url = item.medium_image?.[0]?.url || item.small_image?.[0]?.url;
   if (!url) return null;
-  
+
   if (process.env.NODE_ENV === 'development') {
     return url.replace('https://assets.suitdev.com', '');
   }
-  return `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
+  return `/api/image-proxy?url=${encodeURIComponent(url)}`;
 }
 
 export default function PostCard({ item }) {
