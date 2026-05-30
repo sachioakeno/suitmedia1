@@ -15,10 +15,10 @@ function getImageUrl(item) {
   const url = item.medium_image?.[0]?.url || item.small_image?.[0]?.url;
   if (!url) return null;
 
-  if (process.env.NODE_ENV === 'development') {
-    return url.replace('https://assets.suitdev.com', '');
-  }
-  return `/api/image-proxy?url=${encodeURIComponent(url)}`;
+  console.log('NODE_ENV:', process.env.NODE_ENV);
+  console.log('url:', url);
+
+  return url.replace('https://assets.suitdev.com', '');
 }
 
 export default function PostCard({ item }) {
