@@ -13,7 +13,8 @@ function formatDate(dateStr) {
 
 function getImageUrl(item) {
   const url = item.medium_image?.[0]?.url || item.small_image?.[0]?.url;
-  return url || null;
+  if (!url) return null;
+  return `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
 }
 
 export default function PostCard({ item }) {
