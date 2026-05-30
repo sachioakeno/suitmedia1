@@ -12,9 +12,7 @@ function formatDate(dateStr) {
 }
 
 function getImageUrl(item) {
-  const url = item.medium_image?.[0]?.url || item.small_image?.[0]?.url;
-  if (!url) return null;
-  return url.replace('https://assets.suitdev.com', '');
+  return item.medium_image?.[0]?.url || item.small_image?.[0]?.url || null;
 }
 
 export default function PostCard({ item }) {
