@@ -37,7 +37,7 @@ export default function PostCard({ item }) {
           src={imageUrl}
           alt={item.title}
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer"
           className={`post-card__img ${imgLoaded ? 'post-card__img--loaded' : ''}`}
           onLoad={() => setImgLoaded(true)}
           onError={() => {
