@@ -12,7 +12,8 @@ function formatDate(dateStr) {
 }
 
 function getImageUrl(item) {
-  return item.medium_image?.[0]?.url || item.small_image?.[0]?.url || null;
+  const url = item.medium_image?.[0]?.url || item.small_image?.[0]?.url;
+  return url || null;
 }
 
 export default function PostCard({ item }) {
